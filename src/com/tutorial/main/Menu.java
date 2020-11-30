@@ -9,13 +9,14 @@ import com.tutorial.main.Game.STATE;
 
 public class Menu extends MouseAdapter {
 
-
     private Game game;
     private Handler handler;
+    private HUD hud;
     private Random r = new Random();
 
-    public Menu(Game game, Handler handler) {
+    public Menu(Game game, Handler handler, HUD hud) {
         this.game = game;
+        this.hud = hud;
         this.handler = handler;
     }
 
@@ -29,6 +30,7 @@ public class Menu extends MouseAdapter {
             if(mouseOver(mx, my, 210, 150, 200, 64)) {
                 game.gameState = STATE.Game;
                 handler.addObject(new Player(Game.WIDTH/2-16, Game.HEIGHT/2+16 , ID.Player, handler));
+                handler.clearEnemies();
                 handler.addObject(new BasicEnemy(r.nextInt(Game.WIDTH), 32, ID.BasicEnemy, handler));
             }
 
@@ -49,6 +51,18 @@ public class Menu extends MouseAdapter {
             if(mouseOver(mx, my, 210, 350, 200, 64)) {
                 game.gameState = STATE.Menu;
                 return;
+            }
+
+        // play again button
+        if(game.gameState == STATE.End)
+            if(mouseOver(mx, my, 210, 350, 200, 64)) {
+                game.gameState = STATE.Game;
+                hud.setLevel(1);
+                hud.setScore(0);
+                handler.addObject(new Player(Game.WIDTH/2-16, Game.HEIGHT/2+16 , ID.Player, handler));
+                handler.clearEnemies();
+                handler.addObject(new BasicEnemy(r.nextInt(Game.WIDTH), 32, ID.BasicEnemy, handler));
+
             }
 
     }
@@ -77,7 +91,7 @@ public class Menu extends MouseAdapter {
 
         g.setFont(fnt);
         g.setColor(Color.GREEN);
-        g.drawString("Menu", 240, 70);
+        g.drawString("Waves", 240, 70);
 
         g.setFont(fnt2);
         g.setColor(Color.GREEN);
@@ -109,6 +123,23 @@ public class Menu extends MouseAdapter {
             g.setFont(fnt2);
             g.drawRect(210, 350, 200, 64);
             g.drawString("Back", 275, 390);
+
+        } else if(game.gameState  == STATE.End) {
+            Font fnt = new Font("arial", 1, 40);
+            Font fnt2 = new Font("arial", 1, 30);
+            Font fnt3 = new Font("arial", 1, 20);
+
+            g.setFont(fnt);
+            g.setColor(Color.YELLOW);
+            g.drawString("Game Over", 220, 70);
+
+            g.setFont(fnt3);
+
+            g.drawString("You lost with a score of: " + hud.getScore(), 185, 200);
+
+            g.setFont(fnt2);
+            g.drawRect(215, 350, 200, 64);
+            g.drawString("Play Again", 241, 390);
 
         }
 
