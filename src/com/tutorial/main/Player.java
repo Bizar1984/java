@@ -1,19 +1,27 @@
 package com.tutorial.main;
 
 import java.awt.*;
+import java.awt.image.BufferedImage;
 import java.util.Random;
 
 public class Player extends GameObject {
 
     Random r = new Random();
     private float redValue = 150;
-    private int counter = 0;
     Handler handler;
+
+    private BufferedImage player_image;
+
+
 
     public Player(int x, int y, ID id, Handler handler) {
         super(x, y, id);
+        // super can be used to invoke immediate parent class constructor
         this.handler = handler;
+        // what is this handler doing? Adding, removing objects and clearing enemies
+        SpriteSheet ss = new SpriteSheet(Game.sprite_sheet);
 
+        player_image = ss.grabImage(2, 1, 32, 32);
     }
 
     public void tick() {
@@ -40,7 +48,6 @@ public class Player extends GameObject {
                 // collision code
                 if (getBounds().intersects(tempObject.getBounds())) {
                     HUD.HEALTH -= 2;
-
                 }
             }
 
@@ -54,18 +61,25 @@ public class Player extends GameObject {
 
                 }
             }
+            if(tempObject.getId() == ID.EnemyBoss) {
+                // collision code
+
+
+
+            }
 
         }
     }
 
     public void render(Graphics g) {
-        if(id == ID.Player) g.setColor(Color.yellow);
 
-        if(id == ID.Player) g.setColor(new Color((int) redValue, 50, 180));
+//        if(id == ID.Player) g.setColor(new Color((int) redValue, 50, 180));
+//
+//
+//
+//        g.fillRect((int)x, ((int)y), 32, 32);
+        g.drawImage(player_image, (int)x, (int)y, null);
 
-        if(id == ID.BasicEnemy) g.setColor(Color.red);
-
-        g.fillRect((int)x, ((int)y), 32, 32);
 
     }
 

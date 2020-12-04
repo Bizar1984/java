@@ -6,7 +6,7 @@ import java.util.LinkedList;
 public class Handler {
 
     // we don't know how many objects it will hold so we create a linked list
-    LinkedList<GameObject> object = new LinkedList<GameObject>();
+    LinkedList<GameObject> object = new LinkedList<>();
 
     public void tick() {
         for(int i = 0; i < object.size(); i++) {
