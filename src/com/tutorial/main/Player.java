@@ -30,7 +30,8 @@ public class Player extends GameObject {
         y += velY;
 
         x = Game.clamp(((int)x), 0, Game.WIDTH - 48);
-        y = Game.clamp((int)y, 0, Game.HEIGHT - 70);
+        y = Game.clamp((int)y, 50, Game.HEIGHT - 70);
+        // how could we clamp the height only to 50 where the health bar is located?
 
 
 

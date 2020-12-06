@@ -24,10 +24,12 @@ public class Game extends Canvas implements Runnable {
     private HUD hud;
     private Spawn spawner;
     private Menu menu;
+    private Shop shop;
 
     public enum STATE {
         Menu,
         Select,
+        Shop,
         Game,
         Help,
         End
@@ -41,9 +43,14 @@ public class Game extends Canvas implements Runnable {
         handler = new Handler();
         hud = new HUD();
 
+        // shop needs to be below handler, because shop is using handler
+        // null point exception otherwise
+
         menu = new Menu(this, handler, hud);
+        shop = new Shop(handler, hud);
         this.addKeyListener(new KeyInput(handler, this));
         this.addMouseListener(menu);
+        this.addMouseListener(shop);
 
         AudioPlayer.load();
         AudioPlayer.getMusic("music").loop();
@@ -63,7 +70,7 @@ public class Game extends Canvas implements Runnable {
 
         if(gameState == STATE.Game) {
             handler.addObject(new Player(WIDTH/2-16, HEIGHT/2+16 , ID.Player, handler));
-            handler.addObject(new BasicEnemy(r.nextInt(WIDTH), 32, ID.BasicEnemy, handler));
+            handler.addObject(new BasicEnemy(r.nextInt(WIDTH), 400, ID.BasicEnemy, handler));
         } else {
             for(int i = 0; i < 10; i++) {
                 handler.addObject(new MenuParticle(r.nextInt(WIDTH), r.nextInt(HEIGHT), ID.MenuParticle, handler));
@@ -167,16 +174,24 @@ public class Game extends Canvas implements Runnable {
         g.setColor(Color.black);
         g.fillRect(0, 0, WIDTH, HEIGHT);
 
-        handler.render(g);
+
 
         if(paused) {
             g.setColor(Color.white);
-            g.drawString("PAUSED", 100, 100);
+            g.drawString("PAUSED", WIDTH/2-15, 130);
         }
         if(gameState == STATE.Game ) {
             hud.render(g);
-        } else if(gameState == STATE.Menu || gameState == STATE.Help || gameState == STATE.End || gameState == STATE.Select) {
-            menu.render(g);
+            handler.render(g);
+        }
+        else if(gameState == STATE.Shop) {
+            shop.render(g);
+
+        }
+        else if(gameState == STATE.Menu || gameState == STATE.Help || gameState == STATE.End || gameState == STATE.Select)
+        {
+        menu.render(g);
+        handler.render(g);
         }
 
 

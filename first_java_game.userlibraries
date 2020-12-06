@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<eclipse-userlibraries>
+  <library name="KotlinJavaRuntime">
+    <archive path="C:/Users/crank/AppData/Roaming/JetBrains/IdeaIC2020.2/plugins/Kotlin/kotlinc/lib/kotlin-stdlib.jar" />
+    <archive path="C:/Users/crank/AppData/Roaming/JetBrains/IdeaIC2020.2/plugins/Kotlin/kotlinc/lib/kotlin-reflect.jar" />
+    <archive path="C:/Users/crank/AppData/Roaming/JetBrains/IdeaIC2020.2/plugins/Kotlin/kotlinc/lib/kotlin-test.jar" />
+    <archive path="C:/Users/crank/AppData/Roaming/JetBrains/IdeaIC2020.2/plugins/Kotlin/kotlinc/lib/kotlin-stdlib-jdk7.jar" />
+    <archive path="C:/Users/crank/AppData/Roaming/JetBrains/IdeaIC2020.2/plugins/Kotlin/kotlinc/lib/kotlin-stdlib-jdk8.jar" />
+  </library>
+  <library name="jinput">
+    <archive path="C:/Users/crank/Desktop/libs/Libs/jars/jinput.jar" />
+    <archive path="C:/Users/crank/Desktop/libs/Libs/jars/jogg-0.0.7.jar" />
+    <archive path="C:/Users/crank/Desktop/libs/Libs/jars/jorbis-0.0.15.jar" />
+    <archive path="C:/Users/crank/Desktop/libs/Libs/jars/lwjgl.jar" />
+    <archive path="C:/Users/crank/Desktop/libs/Libs/jars/slick.jar" />
+  </library>
+  <library name="res">
+    <archive path="C:/Users/crank/IdeaProjects/first_java_game/src/res" />
+  </library>
+</eclipse-userlibraries>
+

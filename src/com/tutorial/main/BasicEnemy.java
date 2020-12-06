@@ -30,7 +30,8 @@ public class BasicEnemy extends GameObject {
         x += velX;
         y += velY;
 
-        if(y <= 0 || y >= Game.HEIGHT - 48) velY *= -1;
+        // how can we prevent the enemies to hit the health bar?
+        if(y <= 0 || y >= Game.HEIGHT - 56) velY *= -1;
         if(x <= 0 || x >= Game.WIDTH - 32) velX *= -1;
 
 //        handler.addObject(new Trail((int)x, (int) y, ID.Trail, Color.RED, 16, 16, 1.0f, handler));

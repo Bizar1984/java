@@ -65,7 +65,7 @@ public class EnemyBoss extends GameObject {
 
 
 
-        if(x <= 0 || x >= Game.WIDTH - 96) velX *= -1;
+        if(x <= 0 || x >= Game.WIDTH - 96) velX *= -1; 
 
 //        handler.addObject(new Trail((int)x, (int) y, ID.Trail, Color.blue, 64, 32, 1.0f, handler));
 
