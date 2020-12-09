@@ -16,12 +16,12 @@ public class EnemyBossBullet extends GameObject {
 
         this.handler = handler;
 
-        velX = (r.nextInt(1 - -1) + 1);
+        velX = (r.nextInt(10 - -1) - 5);
         velY = (r.nextInt(20) + 4);
 
         SpriteSheet ss = new SpriteSheet(Game.sprite_sheet);
 
-        enemyBossBullet_image = ss.grabImage(4, 1, 16, 16);
+        enemyBossBullet_image = ss.grabImage(2, 4, 16, 16);
     }
 
     public Rectangle getBounds() {

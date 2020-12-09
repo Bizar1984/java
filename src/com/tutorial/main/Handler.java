@@ -8,7 +8,12 @@ public class Handler {
     // we don't know how many objects it will hold so we create a linked list
     LinkedList<GameObject> object = new LinkedList<>();
 
-    public int speed = 5;
+    public int speedW = 5;
+    public int speedA = 5;
+    public int speedS = 5;
+    public int speedD = 5;
+    public int speedReset = 5;
+    public int slow = 2;
 
     public void tick() {
         for(int i = 0; i < object.size(); i++) {
@@ -34,6 +39,7 @@ public class Handler {
                 object.clear();
                 if(Game.gameState != Game.STATE.End)
                 addObject(new Player((int)tempObject.getX(), (int)tempObject.getY(), ID.Player, this));
+
             }
 
         }

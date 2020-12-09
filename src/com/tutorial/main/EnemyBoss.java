@@ -30,7 +30,7 @@ public class EnemyBoss extends GameObject {
 
         SpriteSheet ss = new SpriteSheet(Game.sprite_sheet);
 
-        enemyBoss_image = ss.grabImage(1, 3, 64, 62);
+        enemyBoss_image = ss.grabImage(1, 1, 64, 64);
     }
 
     public Rectangle getBounds() {
@@ -59,7 +59,7 @@ public class EnemyBoss extends GameObject {
                 velX -= 0.005f;
             }
             velX = Game.clamp(velX, -5, 5);
-            int spawn = r.nextInt(6);
+            int spawn = r.nextInt(3);
             if(spawn == 0) handler.addObject(new EnemyBossBullet((int)x + 48, (int)y + 48, ID.BasicEnemy, handler));
         }
 

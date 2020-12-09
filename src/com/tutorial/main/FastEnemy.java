@@ -19,7 +19,7 @@ public class FastEnemy extends GameObject {
 
         SpriteSheet ss = new SpriteSheet(Game.sprite_sheet);
 
-        fastEnemy_image = ss.grabImage(1, 1, 32, 32);
+        fastEnemy_image = ss.grabImage(2, 3, 32, 32);
     }
 
     public Rectangle getBounds() {

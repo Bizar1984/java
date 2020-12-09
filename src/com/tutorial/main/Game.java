@@ -60,7 +60,7 @@ public class Game extends Canvas implements Runnable {
 
         BufferedImageLoader loader = new BufferedImageLoader();
 
-        sprite_sheet = loader.loadImage("/sprite_sheet.png");
+        sprite_sheet = loader.loadImage("/sprite_improved.png");
 
         spawner = new Spawn(handler, hud, this);
         // you don't add game here, but the keyword this
@@ -70,7 +70,7 @@ public class Game extends Canvas implements Runnable {
 
         if(gameState == STATE.Game) {
             handler.addObject(new Player(WIDTH/2-16, HEIGHT/2+16 , ID.Player, handler));
-            handler.addObject(new BasicEnemy(r.nextInt(WIDTH), 400, ID.BasicEnemy, handler));
+            handler.addObject(new SmartEnemy(r.nextInt(WIDTH - 100), 400, ID.SmartEnemy, handler));
         } else {
             for(int i = 0; i < 10; i++) {
                 handler.addObject(new MenuParticle(r.nextInt(WIDTH), r.nextInt(HEIGHT), ID.MenuParticle, handler));

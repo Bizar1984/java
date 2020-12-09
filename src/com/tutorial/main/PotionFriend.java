@@ -3,23 +3,23 @@ package com.tutorial.main;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 
-public class BasicEnemy extends GameObject {
+public class PotionFriend extends GameObject {
 
     private Handler handler;
 
-    private BufferedImage enemy_image;
+    private BufferedImage potion_friend;
 
-    public BasicEnemy(int x, int y, ID id, Handler handler) {
+    public PotionFriend(int x, int y, ID id, Handler  handler) {
         super(x, y, id);
 
         this.handler = handler;
 
-        velX = 5;
-        velY = 5;
+        velX = 3;
+        velY = 3;
 
         SpriteSheet ss = new SpriteSheet(Game.sprite_sheet);
 
-        enemy_image = ss.grabImage(3, 1, 64, 64);
+        potion_friend = ss.grabImage(3, 4, 32, 32);
     }
 
     public Rectangle getBounds() {
@@ -30,9 +30,9 @@ public class BasicEnemy extends GameObject {
         x += velX;
         y += velY;
 
-        // how can we prevent the enemies to hit the health bar? Find another trick!
-        // why 96 pixels is working for an image with a height of 64 pixels?
-        if(y <= 0 || y >= Game.HEIGHT - 96) velY *= -1;
+//         how can we prevent the enemies to hit the health bar? Found another trick!
+//         why 96 pixels is working for an image with a height of 64 pixels?
+        if(y <= 0 || y >= Game.HEIGHT - 64) velY *= -1;
         if(x <= 0 || x >= Game.WIDTH - 64) velX *= -1;
 
 //        handler.addObject(new Trail((int)x, (int) y, ID.Trail, Color.RED, 16, 16, 1.0f, handler));
@@ -40,7 +40,8 @@ public class BasicEnemy extends GameObject {
     }
 
     public void render(Graphics g) {
-        g.drawImage(enemy_image, (int)x, (int)y, null);
+        g.drawImage(potion_friend, (int)x, (int)y, null);
 
     }
 }
+
