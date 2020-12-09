@@ -35,7 +35,7 @@ public class HardEnemy extends GameObject {
 //        if(y <= 0 || y >= Game.HEIGHT - 64) { if(velY < 0) velY = -(r.nextInt(7) + 1)* -1; else velY = (r.nextInt(7) + 1)* -1; };
 //        if(x <= 0 || x >= Game.WIDTH - 64) { if(velX < 0) velX = -(r.nextInt(7) + 1)* -1; else velX = (r.nextInt(7) + 1)* -1; };
         if(y <= 0 || y >= Game.HEIGHT - 64) velY *= -1;
-        if(x <= 0 || x >= Game.WIDTH - 32) velX *= -1;
+        if(x <= 0 || x >= Game.WIDTH - 48) velX *= -1;
 
 //        handler.addObject(new Trail((int)x, (int) y, ID.Trail, Color.ORANGE, 16, 16, 0.04f, handler));
 

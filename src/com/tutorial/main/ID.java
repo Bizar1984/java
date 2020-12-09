@@ -11,5 +11,6 @@ public enum ID {
     Trail(),
     MenuParticle(),
     PotionEnemy(),
+    JokerEnemy(),
     PotionFriend();
 }
